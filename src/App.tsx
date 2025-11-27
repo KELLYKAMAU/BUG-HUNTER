@@ -1,40 +1,43 @@
 import './App.css'
-// import UserLogin from './components/auth/Userlogin'
+import UserLogin from './components/auth/Userlogin'
 import { createBrowserRouter } from 'react-router'
 import { RouterProvider } from 'react-router'
-import LandingPage from './components/landingpage'
-import Projects from './components/projects/Projects'
-import Bugs from './components/bugs/Bugs'
-import Comments from './components/comments/Comments'
+import LandingPage from './components/Landingpage'
+// import About from './components/'
+import Contact from './components/contact/Contact'
+import Registration from './components/auth/registration'
+import { Admindashboard } from './components/Admin dashboard/Aside/Aside/Dashboard'
 function App() {
   const router = createBrowserRouter([
     {
      path: '/',
-     element: <LandingPage /> 
+     element: <LandingPage />
+    },
+    // {
+    //   path: '/about',
+    //   element: <About />
+    // },
+    {
+      path: '/contact',
+      element: <Contact />
+    },
+    {
+      path: '/userLogin',
+      element: <UserLogin />
+    },
+    {
+      path: '/register',
+      element: <Registration />
+    },
+    {
+      path: '/admin/dashboard',
+      element: <Admindashboard />
     }
-  , {
-    path: '/userLogin',
-    // element: <UserLogin />
-  },
-  {
-    path: '/projects',
-    element: <Projects />
-  },
-  {
-    path: '/bugs',
-    element: <Bugs />
-  },
-  {
-    path: '/comments',
-    element: <Comments />
-  }
   ])
-
 
   return (
     <>
       <RouterProvider router={router} />
-      
     </>
   )
 }
