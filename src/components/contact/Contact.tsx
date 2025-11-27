@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navigation } from "../nav/Navigation";
-import { Footer } from "../nav/footer";
+import { Footer } from "../nav/MyFooter";
 // import contactImage from '../../assets/image-4.png';
 
 const Contact: React.FC = () => {

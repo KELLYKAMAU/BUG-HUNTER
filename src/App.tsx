@@ -2,11 +2,13 @@ import './App.css'
 import UserLogin from './components/auth/Userlogin'
 import { createBrowserRouter } from 'react-router'
 import { RouterProvider } from 'react-router'
-import LandingPage from './components/Landingpage'
+
 // import About from './components/'
 import Contact from './components/contact/Contact'
 import Registration from './components/auth/registration'
 import { Admindashboard } from './components/Admin dashboard/Aside/Aside/Dashboard'
+import LandingPage from './components/Landingpage'
+
 function App() {
   const router = createBrowserRouter([
     {
