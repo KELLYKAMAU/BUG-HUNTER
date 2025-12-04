@@ -1,6 +1,6 @@
 import { apidomain } from "../../utils/APIdomains";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import type { AuthState } from "./authSlice";
+import type { AuthState } from "../auth/AuthSlice";
 
 export type Tuser = {
   userid: number;
@@ -13,6 +13,9 @@ export type Tuser = {
 };
 
 type LoginRequest = {
+  first_name: string;
+  last_name: string;
+  // username: string;
   email: string;
   password_hash: string;
 };

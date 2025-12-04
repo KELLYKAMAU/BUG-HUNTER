@@ -1,8 +1,9 @@
-import React, { FormEvent, useState } from "react";
+import React, { useState } from "react";
+import type { FormEvent } from "react";
 import { useNavigate } from "react-router";
 import { useLoginUserMutation } from "../../features/auth/usersAPI";
 import { useDispatch } from "react-redux";
-import { setCredentials } from "../../features/auth/authSlice";
+import { setCredentials } from "../../features/auth/AuthSlice";
 
 const UserLogin: React.FC = () => {
   const navigate = useNavigate();
@@ -14,11 +15,13 @@ const UserLogin: React.FC = () => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const email = String(formData.get("email") || "");
-    const password = String(formData.get("password") || "");
+    const password_hash = String(formData.get("password") || "");
+    const first_name = String(formData.get("first_name") || "");
+    const last_name = String(formData.get("last_name") || "");
 
     try {
       setErrorMessage(null);
-      const result = await loginUser({ email, password }).unwrap();
+      const result = await loginUser({ email, password_hash, first_name, last_name }).unwrap();
       dispatch(setCredentials({ token: result.token, user: result.user }));
 
       if (result.user.role === "admin") {
@@ -37,8 +40,31 @@ const UserLogin: React.FC = () => {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-sky-100 via-sky-200 to-sky-100">
       <div className="card w-96 bg-base-100 shadow-2xl border border-base-300">
         <div className="card-body">
-          <h2 className="card-title justify-center text-2xl font-bold">Login</h2>
-          <form className="space-y-4" onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit}>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">First Name</span>
+              </label>
+              <input
+                type="text"
+                name="first_name"
+                placeholder="Enter your first name"
+                className="input input-bordered w-full"
+                required
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Last Name</span>
+              </label>
+              <input
+                type="text"
+                name="last_name"
+                placeholder="Enter your last name"
+                className="input input-bordered w-full"
+                required
+              />
+            </div>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>

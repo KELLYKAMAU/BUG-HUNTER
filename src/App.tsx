@@ -1,7 +1,7 @@
 import "./App.css";
 import UserLogin from "./components/auth/Userlogin";
 import Contact from "./components/contact/Contact";
-import Registration from "./components/auth/registration";
+import Register from "./components/auth/Register";
 import { Admindashboard } from "./components/Admin dashboard/Aside/Aside/Dashboard";
 import Landing from "./components/Landing";
 import UserDashboard from "./components/user/UserDashboard";
@@ -33,13 +33,14 @@ function App() {
       path: "/bugs",
       element: <Bugs />,
     },
+   
     {
       path: "/userLogin",
       element: <UserLogin />,
     },
     {
       path: "/register",
-      element: <Registration />,
+      element: <Register />,
     },
     {
       path: "/admin/dashboard",
