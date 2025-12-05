@@ -10,6 +10,8 @@ import Services from "./components/static/Services";
 import { ProtectedRoute } from "./components/routing/ProtectedRoute";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import Bugs from "./components/bugs/Bugs";
+import Projects from "./components/projects/Projects";
+import Comments from "./components/comments/Comments";
 
 function App() {
   const router = createBrowserRouter([
@@ -33,6 +35,16 @@ function App() {
       path: "/bugs",
       element: <Bugs />,
     },
+      {
+      path: "/projects",
+      element: <Projects />,
+    },
+      {
+      path: "/comments",
+      element: <Comments />,
+    },
+   
+   
    
     {
       path: "/userLogin",

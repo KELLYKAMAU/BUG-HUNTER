@@ -13,8 +13,8 @@ export type Tuser = {
 };
 
 type LoginRequest = {
-  first_name: string;
-  last_name: string;
+  // first_name: string;
+  // last_name: string;
   // username: string;
   email: string;
   password_hash: string;

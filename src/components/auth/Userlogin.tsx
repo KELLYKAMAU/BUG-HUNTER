@@ -16,12 +16,12 @@ const UserLogin: React.FC = () => {
     const formData = new FormData(event.currentTarget);
     const email = String(formData.get("email") || "");
     const password_hash = String(formData.get("password") || "");
-    const first_name = String(formData.get("first_name") || "");
-    const last_name = String(formData.get("last_name") || "");
+    // const first_name = String(formData.get("first_name") || "");
+    // const last_name = String(formData.get("last_name") || "");
 
     try {
       setErrorMessage(null);
-      const result = await loginUser({ email, password_hash, first_name, last_name }).unwrap();
+      const result = await loginUser({ email, password_hash }).unwrap();
       dispatch(setCredentials({ token: result.token, user: result.user }));
 
       if (result.user.role === "admin") {
@@ -41,7 +41,7 @@ const UserLogin: React.FC = () => {
       <div className="card w-96 bg-base-100 shadow-2xl border border-base-300">
         <div className="card-body">
           <form onSubmit={handleSubmit}>
-            <div className="form-control">
+            {/* <div className="form-control">
               <label className="label">
                 <span className="label-text">First Name</span>
               </label>
@@ -52,8 +52,8 @@ const UserLogin: React.FC = () => {
                 className="input input-bordered w-full"
                 required
               />
-            </div>
-            <div className="form-control">
+            </div> */}
+            {/* <div className="form-control">
               <label className="label">
                 <span className="label-text">Last Name</span>
               </label>
@@ -64,7 +64,7 @@ const UserLogin: React.FC = () => {
                 className="input input-bordered w-full"
                 required
               />
-            </div>
+            </div> */}
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
